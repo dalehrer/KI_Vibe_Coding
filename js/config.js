@@ -1,6 +1,7 @@
 // Einstellungen und feste Zuordnungen
 
-// Angenommener Kontostand vor der ersten Buchungexport const STARTKONTOSTAND = 500;
+// Angenommener Kontostand vor der ersten Buchung
+export const STARTKONTOSTAND = 500;
 
 // Gröbere Gruppen für das Kreisdiagramm: Gruppe -> Kategorien aus der CSV
 // (neue Kategorien, die hier fehlen, landen automatisch in "Sonstiges")
