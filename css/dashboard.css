@@ -1,0 +1,88 @@
+/* Kennzahlen-Karten und Diagramme */
+
+#karten {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.karte {
+  position: relative;
+  padding: 16px 18px;
+  overflow: hidden;
+}
+
+/* Farbiger Streifen oben an jeder Karte */
+.karte::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primaer);
+}
+
+.karte:nth-child(2)::before { background: var(--ausgabe); }
+.karte:nth-child(3)::before { background: #f59e0b; }
+.karte:nth-child(4)::before { background: var(--einnahme); }
+
+.karte-titel {
+  font-size: 0.78em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-leise);
+}
+
+.karte-wert {
+  margin: 6px 0 2px;
+  font-size: 1.55em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.karte-zusatz {
+  min-height: 1.3em;
+  font-size: 0.85em;
+  color: var(--text-leise);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#diagramme {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.diagramm {
+  padding: 16px 18px;
+  min-width: 0;
+}
+
+.diagramm.breit {
+  grid-column: 1 / -1;
+}
+
+.diagramm h3 {
+  margin: 0 0 10px;
+  font-size: 0.95em;
+}
+
+.diagramm-box {
+  position: relative;
+  height: 280px;
+}
+
+#diagramm-hinweis:empty {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  #diagramme {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Übungsprojekt: fiktive, KI-generierte Kontotransaktionen eines Studenten mit Filtern, Kennzahlen und Diagrammen.">
+  <!-- Nur ein Übungsprojekt: Suchmaschinen sollen die Seite nicht aufnehmen -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Studentenkonto</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/basis.css">
+  <link rel="stylesheet" href="css/kontostand.css">
+  <link rel="stylesheet" href="css/filter.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/tabelle.css">
+</head>
+<body>
+  <!-- Kopfbereich mit Titel und aktuellem Kontostand (wird per JavaScript gefüllt) -->
+  <header class="kopf">
+    <div class="inhalt">
+      <div class="kopf-zeile">
+        <div>
+          <h1>Studentenkonto</h1>
+          <p class="untertitel">Fiktive Kontotransaktionen eines Studenten · Oktober 2023 bis März 2024</p>
+        </div>
+        <button type="button" id="thema-knopf">Dunkel</button>
+      </div>
+
+      <section id="kontostand">
+        <div>
+          <div class="kontostand-titel">Aktueller Kontostand</div>
+          <div id="kontostand-wert">–</div>
+          <div id="kontostand-zusatz"></div>
+        </div>
+        <div id="kontostand-details"></div>
+      </section>
+    </div>
+  </header>
+
+  <main class="inhalt">
+    <p class="ki-hinweis">
+      <strong>Hinweis:</strong> Alle Buchungen sind frei erfunden und wurden mit KI generiert.
+      Es handelt sich nicht um echte Kontodaten. Auch die Webseite wurde mit KI-Unterstützung erstellt.
+    </p>
+
+    <div id="filter" class="flaeche">
+      <label>
+        Art
+        <select id="filter-art">
+          <option value="alle">Alle</option>
+          <option value="ausgaben">Nur Ausgaben</option>
+          <option value="einnahmen">Nur Einnahmen</option>
+        </select>
+      </label>
+
+      <label>
+        Kategorie
+        <select id="filter-kategorie">
+          <option value="">Alle</option>
+        </select>
+      </label>
+
+      <label class="suche">
+        Suche
+        <input type="search" id="filter-suche" placeholder="z. B. REWE, Miete, Mensa ...">
+      </label>
+
+      <button type="button" id="zuruecksetzen">Zurücksetzen</button>
+    </div>
+
+    <!-- Einnahmen / Ausgaben / Saldo der gefilterten Zeilen -->
+    <div id="zusammenfassung"></div>
+
+    <h2 class="abschnitt-titel">Kennzahlen <small>passen sich den Filtern an</small></h2>
+    <section id="karten"></section>
+
+    <h2 class="abschnitt-titel">Diagramme</h2>
+    <p id="diagramm-hinweis"></p>
+    <section id="diagramme">
+      <div class="diagramm breit flaeche">
+        <h3>Kontostand-Verlauf (alle Buchungen)</h3>
+        <div class="diagramm-box"><canvas id="chart-kontostand"></canvas></div>
+      </div>
+      <div class="diagramm flaeche">
+        <h3>Ausgaben nach Bereich</h3>
+        <div class="diagramm-box"><canvas id="chart-kategorien"></canvas></div>
+      </div>
+      <div class="diagramm flaeche">
+        <h3>Einnahmen und Ausgaben pro Monat</h3>
+        <div class="diagramm-box"><canvas id="chart-monate"></canvas></div>
+      </div>
+    </section>
+
+    <h2 class="abschnitt-titel">Alle Buchungen</h2>
+    <p id="status">Lade Daten ...</p>
+    <div class="tabelle-rahmen flaeche">
+      <table id="tabelle">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <footer>
+      <p><strong>KI-Hinweis:</strong> Der Datensatz ist synthetisch und wurde mit KI erzeugt. Ähnlichkeiten mit echten Personen sind zufällig. Die Webseite wurde mit KI-Unterstützung (Claude) programmiert.</p>
+      <p><strong>Datenschutz:</strong> Diese Seite setzt keine Cookies, speichert nichts im Browser und lädt keine Inhalte von fremden Servern (auch die Diagramm-Bibliothek Chart.js liegt lokal bei).</p>
+      <p>Übungsprojekt ohne kommerziellen Zweck. Diagramme mit <a href="js/lib/LICENSE-chartjs.txt">Chart.js (MIT-Lizenz)</a>.</p>
+    </footer>
+  </main>
+
+  <!-- Diagramm-Bibliothek Chart.js (liegt lokal im Ordner js/lib) -->
+  <script src="js/lib/chart.umd.min.js"></script>
+
+  <!-- Eigener Code: js/main.js bindet alle anderen Dateien aus js/ ein -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

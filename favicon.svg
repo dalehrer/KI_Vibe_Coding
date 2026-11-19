@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Kleines Seitensymbol: grünes Quadrat mit steigender Linie -->
+  <rect width="32" height="32" rx="8" fill="#0f7a5a"/>
+  <polyline points="6,22 12,16 17,19 26,9" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

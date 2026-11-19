@@ -1,0 +1,84 @@
+/* Filter-Leiste (bleibt beim Scrollen oben sichtbar) und Zusammenfassung */
+
+#filter {
+  position: sticky;
+  top: 8px;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+  margin: 20px 0 12px;
+  padding: 12px 14px;
+}
+
+#filter label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.78em;
+  font-weight: 600;
+  color: var(--text-leise);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+#filter select,
+#filter input,
+#filter button {
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--rand);
+  border-radius: 10px;
+  background: var(--flaeche-2);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+#filter label.suche {
+  flex: 1;
+  min-width: 180px;
+}
+
+#filter select:focus,
+#filter input:focus {
+  outline: 2px solid var(--primaer);
+  outline-offset: 1px;
+}
+
+#filter button {
+  background: var(--primaer);
+  border-color: var(--primaer);
+  color: var(--flaeche);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#filter button:hover {
+  filter: brightness(1.1);
+}
+
+/* Zusammenfassung als drei "Pillen": Einnahmen, Ausgaben, Saldo */
+#zusammenfassung {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 4px;
+}
+
+.pille {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--flaeche);
+  border: 1px solid var(--rand);
+  font-size: 0.9em;
+  font-variant-numeric: tabular-nums;
+}
+
+.pille b {
+  margin-left: 4px;
+}
+
+.pille.positiv b { color: var(--einnahme); }
+.pille.negativ b { color: var(--ausgabe); }

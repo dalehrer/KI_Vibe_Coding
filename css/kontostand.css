@@ -1,0 +1,98 @@
+/* Kopfbereich: farbiger Balken mit Titel, Design-Knopf und aktuellem Kontostand */
+
+.kopf {
+  background: var(--kopf-verlauf);
+  color: #ffffff;
+  padding: 28px 0 32px;
+}
+
+.kopf-zeile {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.kopf h1 {
+  margin: 0;
+  font-size: 1.7em;
+  letter-spacing: -0.02em;
+}
+
+.untertitel {
+  margin: 4px 0 0;
+  opacity: 0.8;
+}
+
+/* Knopf zum Umschalten hell/dunkel */
+#thema-knopf {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font: inherit;
+  font-size: 0.85em;
+  cursor: pointer;
+}
+
+#thema-knopf:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Kontostand-Kasten (halbtransparent auf dem Farbverlauf) */
+#kontostand {
+  margin-top: 24px;
+  padding: 20px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.kontostand-titel {
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+}
+
+#kontostand-wert {
+  font-size: 2.8em;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+
+#kontostand-zusatz {
+  font-size: 0.88em;
+  opacity: 0.85;
+}
+
+/* Kleine Kennzahlen rechts im Kontostand-Kasten */
+#kontostand-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.detail-titel {
+  font-size: 0.78em;
+  opacity: 0.75;
+}
+
+.detail-wert {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 600px) {
+  .kopf h1 { font-size: 1.35em; }
+  #kontostand-wert { font-size: 2.2em; }
+}

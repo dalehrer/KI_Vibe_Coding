@@ -1,0 +1,97 @@
+/* Transaktionstabelle */
+
+/* Rahmen um die Tabelle; auf schmalen Bildschirmen seitlich scrollbar */
+.tabelle-rahmen {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92em;
+}
+
+th, td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--rand);
+}
+
+th {
+  background: var(--flaeche-2);
+  color: var(--text-leise);
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+th.sortierbar {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+th.sortierbar:hover {
+  color: var(--primaer);
+}
+
+th .pfeil {
+  opacity: 0.6;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: var(--primaer-hell);
+}
+
+td {
+  white-space: nowrap;
+}
+
+td.beschreibung {
+  white-space: normal;
+  min-width: 220px;
+}
+
+td.betrag {
+  text-align: right;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+td.positiv { color: var(--einnahme); }
+td.negativ { color: var(--ausgabe); }
+
+td.waehrung {
+  color: var(--text-leise);
+}
+
+/* Kategorie als kleines Etikett mit farbigem Punkt (Farbe = Gruppe) */
+.etikett {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--flaeche-2);
+  border: 1px solid var(--rand);
+  font-size: 0.9em;
+}
+
+.etikett::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--punkt, #94a3b8);
+}
+
+td.leer {
+  padding: 32px;
+  text-align: center;
+  color: var(--text-leise);
+}

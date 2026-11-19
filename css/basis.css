@@ -1,0 +1,107 @@
+/* Grundlagen: Farben (als Variablen), Schrift, Seitenlayout, Abschnitte, Fußzeile */
+
+/* Helles Design (Standard) */
+:root {
+  --hintergrund: #f3f6f4;
+  --flaeche: #ffffff;
+  --flaeche-2: #f7faf8;   /* leicht abgesetzte Fläche, z. B. Tabellenkopf */
+  --rand: #e1e8e4;
+  --text: #13201a;
+  --text-leise: #5f7068;
+  --primaer: #0f7a5a;     /* Hauptfarbe (Smaragdgrün) */
+  --primaer-hell: #d9f2e8;
+  --einnahme: #16a34a;
+  --ausgabe: #e11d48;
+  --schatten: 0 1px 2px rgba(16, 40, 30, 0.06), 0 4px 16px rgba(16, 40, 30, 0.06);
+  --radius: 14px;
+  --kopf-verlauf: linear-gradient(135deg, #064e3b 0%, #0f7a5a 55%, #14a37a 100%);
+  color-scheme: light;
+}
+
+/* Dunkles Design: gilt, wenn der Knopf oben rechts auf "dunkel" steht */
+:root[data-theme="dark"] {
+  --hintergrund: #0c1311;
+  --flaeche: #141d1a;
+  --flaeche-2: #18231f;
+  --rand: #26332e;
+  --text: #e4ede8;
+  --text-leise: #93a69c;
+  --primaer: #34d399;
+  --primaer-hell: #133b2e;
+  --einnahme: #4ade80;
+  --ausgabe: #fb7185;
+  --schatten: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.25);
+  --kopf-verlauf: linear-gradient(135deg, #022c22 0%, #065f46 60%, #0f7a5a 100%);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--hintergrund);
+}
+
+/* Inhaltsbreite begrenzen und zentrieren */
+.inhalt {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Hinweis auf fiktive, KI-generierte Daten */
+.ki-hinweis {
+  margin: 20px 0 0;
+  padding: 10px 14px;
+  border: 1px dashed var(--primaer);
+  border-radius: 10px;
+  background: var(--primaer-hell);
+  font-size: 0.88em;
+}
+
+/* Abschnittsüberschriften */
+.abschnitt-titel {
+  margin: 32px 0 12px;
+  font-size: 1.15em;
+  letter-spacing: -0.01em;
+}
+
+.abschnitt-titel small {
+  font-weight: normal;
+  color: var(--text-leise);
+  font-size: 0.8em;
+  margin-left: 6px;
+}
+
+/* Gemeinsamer Stil für alle "Karten" (weiße Kästen mit Schatten) */
+.flaeche {
+  background: var(--flaeche);
+  border: 1px solid var(--rand);
+  border-radius: var(--radius);
+  box-shadow: var(--schatten);
+}
+
+#status {
+  margin: 0 0 10px;
+  color: var(--text-leise);
+  font-size: 0.9em;
+}
+
+/* Fußzeile mit KI- und Datenschutz-Hinweis (bewusst ohne Impressum) */
+footer {
+  margin-top: 48px;
+  padding: 24px 0 40px;
+  border-top: 1px solid var(--rand);
+  color: var(--text-leise);
+  font-size: 0.85em;
+}
+
+footer p {
+  margin: 4px 0;
+}
